@@ -52,6 +52,9 @@ class Searchy_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		// Shortcode
+		add_shortcode( 'searchy', array( $this, 'shortcode') );
+
 	}
 
 	/**
@@ -96,7 +99,23 @@ class Searchy_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/searchy-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, SEARCHY_PLUGIN_URL . 'public/js/searchy-public.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+	/**
+	 * Creates the short code in which goes the search template.
+	 *
+	 * @since    1.0.0
+	 * @param    array    $atts       the shortcode attributes
+	 */
+	public function shortcode( $atts ){
+
+        ob_start();
+        
+        require SEARCHY_BASE_DIR . '/public/partials/searchy-tpl.php';
+
+        return ob_get_clean();  
 
 	}
 
