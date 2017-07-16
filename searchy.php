@@ -30,12 +30,18 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Define Searchy constants
+if ( ! defined( 'SEARCHY_BASE_FILE' ) )    	define( 'SEARCHY_BASE_FILE', __FILE__ );
+if ( ! defined( 'SEARCHY_BASE_DIR' ) )    	define( 'SEARCHY_BASE_DIR', dirname( SEARCHY_BASE_FILE ) );
+if ( ! defined( 'SEARCHY_PLUGIN_URL' ) )    define( 'SEARCHY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'SEARCHY_PLUGIN_DIR' ) )    define( 'SEARCHY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-searchy-activator.php
  */
 function activate_searchy() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-searchy-activator.php';
+	require_once SEARCHY_PLUGIN_DIR . 'includes/class-searchy-activator.php';
 	Searchy_Activator::activate();
 }
 
@@ -44,18 +50,18 @@ function activate_searchy() {
  * This action is documented in includes/class-searchy-deactivator.php
  */
 function deactivate_searchy() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-searchy-deactivator.php';
+	require_once SEARCHY_PLUGIN_DIR . 'includes/class-searchy-deactivator.php';
 	Searchy_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_searchy' );
-register_deactivation_hook( __FILE__, 'deactivate_searchy' );
+register_activation_hook( SEARCHY_BASE_FILE, 'activate_searchy' );
+register_deactivation_hook( SEARCHY_BASE_FILE, 'deactivate_searchy' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-searchy.php';
+require SEARCHY_PLUGIN_DIR . 'includes/class-searchy.php';
 
 /**
  * Begins execution of the plugin.

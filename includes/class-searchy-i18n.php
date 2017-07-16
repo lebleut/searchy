@@ -37,7 +37,7 @@ class Searchy_i18n {
 		load_plugin_textdomain(
 			'searchy',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			SEARCHY_BASE_DIR . '/languages/'
 		);
 
 	}
