@@ -29,4 +29,10 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	$( window ).load(function() {
+		$( "input.searchy-input" ).live("input", function( event ){
+			$( ".searchy-results" ).html("Results for '<b>" + $(this).val() + "</b>'.");
+		});
+	});
+
 })( jQuery );

@@ -11,5 +11,10 @@
  */
 
 ?>
-<div>Searchy input and results goes here ...</div>
+<div class="searchy-input-wraper">
+	<input type="text" placeholder="Searchy..." class="searchy-input">
+</div>
+<div class="searchy-results">
+	Results go here..
+</div>
 <?php
