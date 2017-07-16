@@ -15,6 +15,7 @@
 	<input type="text" placeholder="Searchy..." class="searchy-input">
 </div>
 <div class="searchy-results">
-	Results go here..
+	<div class="title">Results go here..</div>
+	<div class="content"></div>
 </div>
 <?php

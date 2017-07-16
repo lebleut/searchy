@@ -29,10 +29,66 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	var searchyIdleTimer = null;
+	var searchyIdleState = false;
+	var searchyIdleWait = 1000;
+
+	var searchyXhr;
+
 	$( window ).load(function() {
+
 		$( "input.searchy-input" ).live("input", function( event ){
-			$( ".searchy-results" ).html("Results for '<b>" + $(this).val() + "</b>'.");
+			var $searchyQuery = $(this).val();
+
+		    clearTimeout(searchyIdleTimer);
+                
+            if (searchyIdleState == true) {
+            	// Clear results
+            	$( ".searchy-results .content" ).html( "" );
+
+                // TODO : remove old AJAX request if exists here
+
+            }
+            
+            searchyIdleState = false;
+            
+            searchyIdleTimer = setTimeout(
+            	function(){
+            		searchyQueryRequest( $searchyQuery );
+            	},
+            	searchyIdleWait
+            );
+
 		});
+
 	});
+
+	function searchyQueryRequest( query ){
+		// Idle Event : Ajax request here
+		// Results title
+		$( ".searchy-results .title" ).html("Results for '<b>" + query + "</b>'.");
+
+		if(searchyXhr && searchyXhr.readystate != 4){
+			// Abord previous ajax call if new input request 
+		    searchyXhr.abort();
+		}
+
+		searchyXhr = $.post(
+		    ajaxurl,
+		    {
+		        'action': 'searchy_search',
+		        'param': query
+		    },
+		    function( response ){
+		    	if( response == 0 ){
+		    		response = "No result!";
+		    	}
+		    	// Show results
+				$( ".searchy-results .content" ).html( response );
+		    }
+		);
+
+		searchyIdleState = true;
+	}
 
 })( jQuery );

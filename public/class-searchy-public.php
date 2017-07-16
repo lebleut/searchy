@@ -100,6 +100,9 @@ class Searchy_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, SEARCHY_PLUGIN_URL . 'public/js/searchy-public.js', array( 'jquery' ), $this->version, false );
+		
+		// Pass Ajax Url to the searchy public script 'ajaxurl'
+		wp_localize_script( $this->plugin_name, 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 
 	}
 
