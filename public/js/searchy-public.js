@@ -69,6 +69,7 @@
 		// Idle Event : Ajax request here
 		// Results title
 		$( ".searchy-results .title" ).html("Results for '<b>" + query + "</b>'.");
+		$( ".searchy-input-wraper .spinner" ).show();
 
 		if(searchyXhr && searchyXhr.readystate != 4){
 			// Abord previous ajax call if new input request 
@@ -87,6 +88,7 @@
 		    	}
 		    	// Show results
 				$( ".searchy-results .content" ).html( response );
+				$( ".searchy-input-wraper .spinner" ).hide();
 		    }
 		);
 

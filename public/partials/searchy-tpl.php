@@ -13,6 +13,7 @@
 ?>
 <div class="searchy-input-wraper">
 	<input type="text" placeholder="Searchy..." class="searchy-input">
+	<div class="spinner" style="display: none;"><img style="max-width: 5%;" src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/spinner.gif"></div>
 </div>
 <div class="searchy-results">
 	<div class="title">Results go here..</div>
