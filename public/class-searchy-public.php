@@ -132,15 +132,36 @@ class Searchy_Public {
 		$param_text = $_POST['query_text'];
 
 		global $wpdb;
-		$results = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->posts . ' WHERE post_content LIKE "%' . $param_text . '%"', OBJECT );
+		$results = $wpdb->get_results( "SELECT * FROM $wpdb->posts
+										WHERE
+											post_content LIKE '%$param_text%'
+											AND
+											post_status = 'publish'"
+										, OBJECT );
+		$nbr_posts = count($results);
 
-
+		switch ($nbr_posts) {
+			case 0:
+				?>
+				<div class="count">Sorry no results found.</div>
+				<?php
+				break;
+			case 1:
+				?>
+				<div class="count">only <b><?php echo $nbr_posts; ?></b> result found.</div>
+				<?php
+				break;
+			
+			default:
+				?>
+				<div class="count"><b><?php echo $nbr_posts; ?></b> results found.</div>
+				<?php
+				break;
+		}
 		?>
 		<ul>
 			<?php
 			foreach ($results as $key => $result) {
-				// Show only public posts
-				if(  $result->post_status != 'publish' ) continue;
 
 				echo("<pre>"); print_r($result); echo("</pre>");
 			?>

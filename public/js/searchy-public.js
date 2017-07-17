@@ -31,7 +31,9 @@
 
 	var searchyIdleTimer = null;
 	var searchyIdleState = false;
-	var searchyIdleWait = 1000;
+
+	// idle wait befaure firing the ajax query to optimize the resources
+	var searchyIdleWait = 500;
 
 	var searchyXhr;
 
