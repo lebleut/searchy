@@ -122,4 +122,40 @@ class Searchy_Public {
 
 	}
 
+	/**
+	 * The main function which serves the ajax calls for the serch
+	 *
+	 * @since    1.0.0
+	 */
+	public function searchy_search_ajx_call() {
+
+		$param_text = $_POST['query_text'];
+
+		global $wpdb;
+		$results = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->posts . ' WHERE post_content LIKE "%' . $param_text . '%"', OBJECT );
+
+
+		?>
+		<ul>
+			<?php
+			foreach ($results as $key => $result) {
+				// Show only public posts
+				if(  $result->post_status != 'publish' ) continue;
+
+				echo("<pre>"); print_r($result); echo("</pre>");
+			?>
+				<div class="result">
+					<h2 class="title"><?php echo $result->post_title; ?></h2>
+					<div class="content"><?php echo $result->post_content; ?></div>
+					<div class="type"><strong><?php echo $result->post_type; ?></strong></div>
+				</div>
+			<?php	
+			}
+			?>
+		</ul>
+		<?php
+
+		die();
+	}
+
 }

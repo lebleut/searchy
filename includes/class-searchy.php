@@ -170,6 +170,10 @@ class Searchy {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+		// Ajax calls
+		$this->loader->add_action( 'wp_ajax_searchy_search', $plugin_public, 'searchy_search_ajx_call' );
+		$this->loader->add_action( 'wp_ajax_nopriv_searchy_search', $plugin_public, 'searchy_search_ajx_call' );
+
 	}
 
 	/**

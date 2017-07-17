@@ -52,12 +52,14 @@
             
             searchyIdleState = false;
             
-            searchyIdleTimer = setTimeout(
-            	function(){
-            		searchyQueryRequest( $searchyQuery );
-            	},
-            	searchyIdleWait
-            );
+            if( $searchyQuery != "" ){
+	            searchyIdleTimer = setTimeout(
+	            	function(){
+	            		searchyQueryRequest( $searchyQuery );
+	            	},
+	            	searchyIdleWait
+	            );
+            }
 
 		});
 
@@ -77,7 +79,7 @@
 		    ajaxurl,
 		    {
 		        'action': 'searchy_search',
-		        'param': query
+		        'query_text': query
 		    },
 		    function( response ){
 		    	if( response == 0 ){
