@@ -2,3 +2,15 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+
+.searchy-input-wraper{
+	position: relative;
+}
+
+.searchy-input-wraper .spinner{
+ 	max-width: 35px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
