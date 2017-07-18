@@ -148,7 +148,7 @@ class Searchy_Public {
 				break;
 			case 1:
 				?>
-				<div class="count">only <b><?php echo $nbr_posts; ?></b> result found.</div>
+				<div class="count">Only <b><?php echo $nbr_posts; ?></b> result found.</div>
 				<?php
 				break;
 			
@@ -163,13 +163,14 @@ class Searchy_Public {
 			<?php
 			foreach ($results as $key => $result) {
 
-				echo("<pre>"); print_r($result); echo("</pre>");
+				//echo("<pre>"); print_r($result); echo("</pre>");
 			?>
-				<div class="result">
-					<h2 class="title"><?php echo $result->post_title; ?></h2>
-					<div class="content"><?php echo $result->post_content; ?></div>
-					<div class="type"><strong><?php echo $result->post_type; ?></strong></div>
-				</div>
+				<ul class="result">
+					<li>
+						<h2 class="title"><a href="<?php echo get_permalink($result->ID); ?>"><?php echo $result->post_title; ?></a></h2>
+						<div class="type"><strong><?php echo $result->post_type; ?></strong></div>						
+					</li>
+				</ul>
 			<?php	
 			}
 			?>
