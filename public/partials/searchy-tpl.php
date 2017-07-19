@@ -30,6 +30,12 @@
 				</li>
 			</ul>
 		</div>
+
+		<div class="meta">
+			<div class="title">Custom field</div>
+			<label style="display: inline-block; width: 49%;">Key<input type="text" class="query_meta_key"></label>
+			<label style="display: inline-block; width: 49%;">Value<input type="text" class="query_meta_value"></label>
+		</div>
 	</div>
 </div>
 <div class="searchy-results">

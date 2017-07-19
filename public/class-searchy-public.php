@@ -135,21 +135,34 @@ class Searchy_Public {
 		// Params 
 		$param_text = $_POST['query_text'];
 		$param_post_type = $_POST['query_post_types'];
-
+		$param_meta_key = $_POST['query_meta_key'];
+		$param_meta_value = $_POST['query_meta_value'];
 		$into_post_type = "";
 		
-		$into_post_type = "AND post_type IN ('" . implode("','",$param_post_type) . "')";
+		$into_post_type = "AND $wpdb->posts.post_type IN ('" . implode("','",$param_post_type) . "')";
 
-		$results = $wpdb->get_results( "SELECT * FROM $wpdb->posts
-										WHERE
-											( 
-												post_content LIKE '%$param_text%' 
-												OR 
-												post_title LIKE '%$param_text%'
-											)
-											" . $into_post_type . "
-											AND post_status = 'publish'"
-										, OBJECT );
+		$into_meta = "";
+		$meta_join = "";
+
+		if( $param_meta_key != "" ){
+			$into_meta = "AND ( $wpdb->postmeta.meta_key = '" . $param_meta_key . "' AND $wpdb->postmeta.meta_value = '" . $param_meta_value . "' )";
+			$meta_join = "INNER JOIN $wpdb->postmeta ON ( $wpdb->posts.ID = $wpdb->postmeta.post_id )";
+		}
+
+		$searchy_query_text = "SELECT * FROM $wpdb->posts
+								" . $meta_join . "
+								WHERE
+									( 
+										$wpdb->posts.post_content LIKE '%$param_text%' 
+										OR 
+										$wpdb->posts.post_title LIKE '%$param_text%'
+									)
+									" . $into_post_type . "
+									" . $into_meta . "
+									AND $wpdb->posts.post_status = 'publish'
+									";
+
+		$results = $wpdb->get_results( $searchy_query_text , OBJECT );
 		$nbr_posts = count($results);
 
 		switch ($nbr_posts) {
@@ -170,6 +183,7 @@ class Searchy_Public {
 				<?php
 				break;
 		}
+		//echo("<code>".nl2br($searchy_query_text)."</code>");
 		?>
 		<ul>
 			<?php

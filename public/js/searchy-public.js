@@ -39,8 +39,8 @@
 
 	$( window ).load(function() {
 
-		$( "input.searchy-input" ).live("input", function( event ){
-			var $searchyQuery = $(this).val();
+		$( ".searchy-input-wraper input" ).live("input change", function( event ){
+			var $searchyQuery = $(".searchy-input-wraper input.searchy-input").val();
 
 		    clearTimeout(searchyIdleTimer);
                 
@@ -89,7 +89,9 @@
 		    {
 		        'action': 'searchy_search',
 		        'query_text': query,
-		        'query_post_types': query_post_types
+		        'query_post_types': query_post_types,
+		        'query_meta_key': $('.query_meta_key').val(),
+		        'query_meta_value': $('.query_meta_value').val()
 		    },
 		    function( response ){
 		    	if( response == 0 ){
