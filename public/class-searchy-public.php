@@ -129,14 +129,26 @@ class Searchy_Public {
 	 */
 	public function searchy_search_ajx_call() {
 
-		$param_text = $_POST['query_text'];
 
 		global $wpdb;
+
+		// Params 
+		$param_text = $_POST['query_text'];
+		$param_post_type = $_POST['query_post_types'];
+
+		$into_post_type = "";
+		
+		$into_post_type = "AND post_type IN ('" . implode("','",$param_post_type) . "')";
+
 		$results = $wpdb->get_results( "SELECT * FROM $wpdb->posts
 										WHERE
-											post_content LIKE '%$param_text%'
-											AND
-											post_status = 'publish'"
+											( 
+												post_content LIKE '%$param_text%' 
+												OR 
+												post_title LIKE '%$param_text%'
+											)
+											" . $into_post_type . "
+											AND post_status = 'publish'"
 										, OBJECT );
 		$nbr_posts = count($results);
 

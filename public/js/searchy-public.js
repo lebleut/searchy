@@ -78,11 +78,18 @@
 		    searchyXhr.abort();
 		}
 
+		var query_post_types = [];
+
+		$('.post_types input:checked').each(function(index){
+			query_post_types.push($(this).val());
+		});
+		
 		searchyXhr = $.post(
 		    ajaxurl,
 		    {
 		        'action': 'searchy_search',
-		        'query_text': query
+		        'query_text': query,
+		        'query_post_types': query_post_types
 		    },
 		    function( response ){
 		    	if( response == 0 ){
