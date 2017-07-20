@@ -39,34 +39,36 @@
 
 	$( window ).load(function() {
 
-		$( ".searchy-input-wraper input" ).live("input change", function( event ){
-			var $searchyQuery = $(".searchy-input-wraper input.searchy-input").val();
-
-		    clearTimeout(searchyIdleTimer);
-                
-            if (searchyIdleState == true) {
-            	// Clear results
-            	$( ".searchy-results .content" ).html( "" );
-
-                // TODO : remove old AJAX request if exists here
-
-            }
-            
-            searchyIdleState = false;
-            
-            if( $searchyQuery != "" ){
-	            searchyIdleTimer = setTimeout(
-	            	function(){
-	            		searchyQueryRequest( $searchyQuery );
-	            	},
-	            	searchyIdleWait
-	            );
-            }
-
-		});
+		$( ".searchy-input-wraper input[type=text]" ).live("input", function( event ){ searchyHandler(event); });
+		$( ".searchy-input-wraper input[type=checkbox]" ).live("change", function( event ){ searchyHandler(event); });
 
 	});
 
+	function searchyHandler( event ){
+		var $searchyQuery = $(".searchy-input-wraper input.searchy-input").val();
+
+	    clearTimeout(searchyIdleTimer);
+            
+        if (searchyIdleState == true) {
+        	// Clear results
+        	$( ".searchy-results .content" ).html( "" );
+
+            // TODO : remove old AJAX request if exists here
+
+        }
+        
+        searchyIdleState = false;
+        
+        if( $searchyQuery != "" ){
+            searchyIdleTimer = setTimeout(
+            	function(){
+            		searchyQueryRequest( $searchyQuery );
+            	},
+            	searchyIdleWait
+            );
+        }
+
+	}
 	function searchyQueryRequest( query ){
 		// Idle Event : Ajax request here
 		// Results title
