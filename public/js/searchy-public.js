@@ -85,6 +85,12 @@
 		$('.post_types input:checked').each(function(index){
 			query_post_types.push($(this).val());
 		});
+
+		var query_search_in = [];
+
+		$('.search_in input:checked').each(function(index){
+			query_search_in.push($(this).val());
+		});
 		
 		searchyXhr = $.post(
 		    ajaxurl,
@@ -92,6 +98,7 @@
 		        'action': 'searchy_search',
 		        'query_text': query,
 		        'query_post_types': query_post_types,
+		        'query_search_in': query_search_in,
 		        'query_meta_key': $('.query_meta_key').val(),
 		        'query_meta_value': $('.query_meta_value').val()
 		    },

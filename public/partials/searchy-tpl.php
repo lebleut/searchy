@@ -30,6 +30,26 @@
 				</li>
 			</ul>
 		</div>
+		<div class="search_in">
+			<div class="title">Search in</div>
+			<ul>
+				<li>
+					<label>Title
+						<input type="checkbox" value="title">
+					</label>
+				</li>
+				<li>
+					<label>Content
+						<input type="checkbox" value="content" checked>
+					</label>
+				</li>
+				<li>
+					<label>Excerpt
+						<input type="checkbox" value="excerpt">
+					</label>
+				</li>
+			</ul>
+		</div>
 
 		<div class="meta">
 			<div class="title">Custom field</div>
