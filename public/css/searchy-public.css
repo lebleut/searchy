@@ -9,16 +9,22 @@
 }
 
 .searchy-input-wraper .spinner,
-.searchy-input-wraper .conf{
+.searchy-input-wraper .conf,
+.searchy-input-wraper .remove{
  	max-width: 35px;
     position: absolute;
     top: 5px;
 }
 
-.searchy-input-wraper .spinner{
+.searchy-input-wraper .spinner,
+.searchy-input-wraper .remove{
     right: 45px;
 }
 .searchy-input-wraper .conf{
     right: 10px;
-    cursor: pointer;
+}
+
+.searchy-input-wraper .remove,
+.searchy-input-wraper .conf{
+	cursor: pointer;
 }

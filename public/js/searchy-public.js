@@ -44,6 +44,10 @@
 		$(".searchy-input-wraper .conf").live("click", function( event ){
 			$(".searchy-input-wraper .params").toggle();
 		});
+		$(".searchy-input-wraper .remove").live("click", function( event ){
+			$(".searchy-input-wraper input.searchy-input").val("");
+			$(".searchy-input-wraper input.searchy-input").trigger("input");
+		});
 	});
 
 	function searchyHandler( event ){
@@ -68,6 +72,8 @@
             	},
             	searchyIdleWait
             );
+        }else{
+			$( ".searchy-input-wraper .remove" ).hide();
         }
 
 	}
@@ -76,6 +82,7 @@
 		// Results title
 		$( ".searchy-results .title" ).html("Results for '<b>" + query + "</b>'.");
 		$( ".searchy-input-wraper .spinner" ).show();
+		$( ".searchy-input-wraper .remove" ).hide();
 
 		if(searchyXhr && searchyXhr.readystate != 4){
 			// Abord previous ajax call if new input request 
@@ -111,6 +118,7 @@
 		    	// Show results
 				$( ".searchy-results .content" ).html( response );
 				$( ".searchy-input-wraper .spinner" ).hide();
+				$( ".searchy-input-wraper .remove" ).show();
 		    }
 		);
 
