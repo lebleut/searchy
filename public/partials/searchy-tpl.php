@@ -14,7 +14,8 @@
 <div class="searchy-input-wraper">
 	<input type="text" placeholder="Searchy..." class="searchy-input">
 	<div class="spinner" style="display: none;"><img src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/spinner.gif"></div>
-	<div class="params">
+	<div class="conf"><img src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/conf.png"></div>
+	<div class="params" style="display: none;">
 		<div class="post_types">
 			<div class="title">Post types</div>
 			<ul>

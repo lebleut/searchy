@@ -8,9 +8,17 @@
 	position: relative;
 }
 
-.searchy-input-wraper .spinner{
+.searchy-input-wraper .spinner,
+.searchy-input-wraper .conf{
  	max-width: 35px;
     position: absolute;
     top: 5px;
+}
+
+.searchy-input-wraper .spinner{
+    right: 45px;
+}
+.searchy-input-wraper .conf{
     right: 10px;
+    cursor: pointer;
 }

@@ -41,7 +41,9 @@
 
 		$( ".searchy-input-wraper input[type=text]" ).live("input", function( event ){ searchyHandler(event); });
 		$( ".searchy-input-wraper input[type=checkbox]" ).live("change", function( event ){ searchyHandler(event); });
-
+		$(".searchy-input-wraper .conf").live("click", function( event ){
+			$(".searchy-input-wraper .params").toggle();
+		});
 	});
 
 	function searchyHandler( event ){
