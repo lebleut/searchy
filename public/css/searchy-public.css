@@ -16,4 +16,13 @@
 .searchy-input-wraper .remove,
 .searchy-input-wraper .conf{
 	cursor: pointer;
+	opacity: 0.5;
+	-moz-transition: opacity .6s cubic-bezier(0.05, -0.02, 0, 1.01);
+	-o-transition: opacity .6s cubic-bezier(0.05, -0.02, 0, 1.01);
+	-webkit-transition: opacity .6s cubic-bezier(0.05, -0.02, 0, 1.01);
+	transition: opacity .6s cubic-bezier(0.05, -0.02, 0, 1.01);
+}
+.searchy-input-wraper .remove:hover,
+.searchy-input-wraper .conf:hover{
+	opacity: 1;
 }
