@@ -38,7 +38,27 @@
 	var searchyXhr;
 
 	$( window ).load(function() {
+		// Icons style depending on the main searchy input
+		jQuery(".searchy .icon").each(function(index){
+			var searchyInputHeight = jQuery(this).parents(".searchy").first().find(".searchy-input").innerHeight();
 
+			var padding = 5*searchyInputHeight/100;
+
+			// Width
+			jQuery(this).innerWidth( searchyInputHeight - (2 * padding) );
+
+			// Top position
+			jQuery(this).css("top",padding);
+
+			// Right position
+			if( jQuery(this).hasClass("spinner") || jQuery(this).hasClass("remove") ){
+				jQuery(this).css("right", searchyInputHeight + padding);
+			}else{
+				jQuery(this).css("right",padding);
+			}
+		});
+
+		// Behaviour
 		$( ".searchy-input-wraper input[type=text]" ).live("input", function( event ){ searchyHandler(event); });
 		$( ".searchy-input-wraper input[type=checkbox]" ).live("change", function( event ){ searchyHandler(event); });
 		$(".searchy-input-wraper .conf").live("click", function( event ){
