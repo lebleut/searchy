@@ -62,7 +62,6 @@
 		</div>
 	</div>
 	<div class="searchy-results">
-		<div class="title">Results go here..</div>
 		<div class="content"></div>
 	</div>
 </div>

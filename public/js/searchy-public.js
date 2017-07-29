@@ -99,8 +99,6 @@
 	}
 	function searchyQueryRequest( query ){
 		// Idle Event : Ajax request here
-		// Results title
-		$( ".searchy-results .title" ).html("Results for '<b>" + query + "</b>'.");
 		$( ".searchy-input-wraper .spinner" ).show();
 		$( ".searchy-input-wraper .remove" ).hide();
 
