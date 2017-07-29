@@ -14,9 +14,15 @@
 <div class="searchy">
 	<div class="searchy-input-wraper">
 		<input type="text" placeholder="Searchy..." class="searchy-input">
-		<div class="icon remove" style="display: none;"><img src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/close.png"></div>
-		<div class="icon spinner" style="display: none;"><img src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/spinner.gif"></div>
-		<div class="icon conf"><img src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/conf.png"></div>
+		<div class="icon remove" style="display: none;">
+			<span class="dashicons dashicons-dismiss"></span>
+		</div>
+		<div class="icon spinner" style="display: none;">
+			<img src="<?php echo SEARCHY_PLUGIN_URL; ?>/assets/spinner.gif">
+		</div>
+		<div class="icon conf">
+			<span class="dashicons dashicons-admin-generic"></span>
+		</div>
 		<div class="params" style="display: none;">
 			<div class="post_types">
 				<div class="title">Post types</div>

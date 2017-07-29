@@ -46,6 +46,7 @@
 
 			// Width
 			jQuery(this).innerWidth( searchyInputHeight - (2 * padding) );
+			jQuery(this).find(".dashicons").css("font-size", searchyInputHeight - (2 * padding) );
 
 			// Top position
 			jQuery(this).css("top",padding);
