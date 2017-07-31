@@ -35,7 +35,7 @@
 					</li>
 					<li>
 						<label>
-							<input type="checkbox" value="page">
+							<input type="checkbox" value="page" checked>
 							Pages
 						</label>
 					</li>
@@ -46,7 +46,7 @@
 				<ul>
 					<li>
 						<label>
-							<input type="checkbox" value="title">
+							<input type="checkbox" value="title" checked>
 							Title
 						</label>
 					</li>

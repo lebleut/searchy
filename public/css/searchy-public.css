@@ -58,3 +58,11 @@
     padding: 10px;
     margin: 5px;
 }
+
+.searchy .result{
+	margin-left: 20px;
+}
+
+.searchy .result li{
+	padding-bottom: 10px;
+}
