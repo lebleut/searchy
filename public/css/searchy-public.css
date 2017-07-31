@@ -26,3 +26,35 @@
 .searchy-input-wraper .conf:hover{
 	opacity: 1;
 }
+
+
+.searchy .searchy-input{
+    border-color:grey;
+}
+
+.searchy .params {
+    position: absolute;
+    background: aliceblue;
+    width: 100%;
+    padding: 20px;
+    border-color: grey;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+    border-style: solid;
+}
+
+.searchy .params li{
+  list-style-type: none;
+}
+
+.searchy .params .title{
+  text-decoration: underline;
+}
+
+.searchy .params>div {
+	border: 2px rgba(128, 128, 128, 0.2) dashed;
+    padding: 10px;
+    margin: 5px;
+}

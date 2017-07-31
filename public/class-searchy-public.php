@@ -214,7 +214,7 @@ class Searchy_Public {
 			?>
 				<ul class="result">
 					<li>
-						<h2 class="title"><a href="<?php echo get_permalink($result->ID); ?>"><?php echo $result->post_title; ?></a></h2>
+						<div class="title"><a href="<?php echo get_permalink($result->ID); ?>"><?php echo $result->post_title; ?></a></div>
 						<div class="type"><strong><?php echo $result->post_type; ?></strong></div>						
 					</li>
 				</ul>
