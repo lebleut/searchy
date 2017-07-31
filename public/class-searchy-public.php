@@ -206,18 +206,16 @@ class Searchy_Public {
 		}
 		//echo("<code>".nl2br($searchy_query_text)."</code>");
 		?>
-		<ul>
+		<ul class="result">
 			<?php
 			foreach ($results as $key => $result) {
 
 				//echo("<pre>"); print_r($result); echo("</pre>");
 			?>
-				<ul class="result">
 					<li>
-						<div class="title"><a href="<?php echo get_permalink($result->ID); ?>"><?php echo $result->post_title; ?></a></div>
-						<div class="type"><strong><?php echo $result->post_type; ?></strong></div>						
+						<span class="title"><a href="<?php echo get_permalink($result->ID); ?>"><?php echo $result->post_title; ?></a></span>
+						<span class="type"> (<i><?php echo $result->post_type; ?></i>)</span>						
 					</li>
-				</ul>
 			<?php	
 			}
 			?>
