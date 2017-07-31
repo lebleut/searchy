@@ -55,6 +55,12 @@ class Searchy_Public {
 		// Shortcode
 		add_shortcode( 'searchy', array( $this, 'shortcode') );
 
+		require SEARCHY_PLUGIN_DIR . 'public/class-searchy-widget.php';
+
+		add_action( 'widgets_init', function(){
+			register_widget( 'searchy_widget' );
+		});
+
 	}
 
 	/**
