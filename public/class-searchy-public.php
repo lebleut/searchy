@@ -77,7 +77,9 @@ class Searchy_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, SEARCHY_PLUGIN_URL . 'public/css/searchy-public.css', array(), $this->version, 'all' );
-
+		
+		//Enqueue the Dashicons script to use for icons
+		wp_enqueue_style( 'dashicons' );
 	}
 
 	/**
