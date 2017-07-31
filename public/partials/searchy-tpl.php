@@ -28,13 +28,15 @@
 				<div class="title">Post types</div>
 				<ul>
 					<li>
-						<label>Posts
+						<label>
 							<input type="checkbox" value="post" checked>
+							Posts
 						</label>
 					</li>
 					<li>
-						<label>Pages
+						<label>
 							<input type="checkbox" value="page">
+							Pages
 						</label>
 					</li>
 				</ul>
@@ -43,18 +45,21 @@
 				<div class="title">Search in</div>
 				<ul>
 					<li>
-						<label>Title
+						<label>
 							<input type="checkbox" value="title">
+							Title
 						</label>
 					</li>
 					<li>
-						<label>Content
+						<label>
 							<input type="checkbox" value="content" checked>
+							Content
 						</label>
 					</li>
 					<li>
-						<label>Excerpt
+						<label>
 							<input type="checkbox" value="excerpt">
+							Excerpt
 						</label>
 					</li>
 				</ul>
