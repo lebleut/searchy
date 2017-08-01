@@ -76,4 +76,3 @@
 		<div class="content"></div>
 	</div>
 </div>
-<?php
