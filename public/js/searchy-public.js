@@ -81,7 +81,7 @@
 
 	    clearTimeout(searchyIdleTimer);
             
-        if (searchyIdleState == true) {
+        if (searchyIdleState == true || $searchyQuery== "" ) {
         	// Clear results
         	$searchyParent.find( ".searchy-results .content" ).html( "" );
 
